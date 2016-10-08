@@ -23,8 +23,24 @@ namespace TicketApp.Models
 		public DbSet<Ticket> Tickets {
 			get; set;
 		}
-		// New is required because Compiler BS
+
 		public DbSet<User> User {
+			get; set;
+		}
+
+		public DbSet<TicketComponent> TicketComponents {
+			get; set;
+		}
+
+		public DbSet<ChatAppointment> ChatAppointments {
+			get; set;
+		}
+
+		public DbSet<ChatToUser> ChatToUsers {
+			get; set;
+		}
+
+		public DbSet<UsersTickets> UsersTickets {
 			get; set;
 		}
 

@@ -80,7 +80,6 @@ D:\Software\Visual Studio\Projects\TicketApp\TicketApp\bin\Microsoft.Owin.Securi
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.csprojResolveAssemblyReference.cache
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.dll
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.pdb
-D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.InitialCreate.resources
+D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.initialadd.resources
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.csproj.GenerateResource.Cache
-D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.all.resources
-D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.AddingUsers.resources
+D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.thj.resources
