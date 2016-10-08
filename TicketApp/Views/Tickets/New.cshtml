@@ -1,0 +1,21 @@
+﻿@model TicketApp.Models.NewTicketViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("Add", "Tickets", FormMethod.Post, new { @class = "form" })) {
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BodyText)
+        @Html.TextAreaFor(m => m.BodyText, new { @class = "form-control", rows = 4 })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Save" />
+}
