@@ -1,0 +1,17 @@
+﻿@model List<TicketApp.Models.Ticket>
+<table>
+    <tr>
+        <td><b>Title</b></td>
+        <td><b>Status</b></td>
+        <td><b>Date Submitted</b></td>
+    </tr>
+    @foreach (var ticket in Model) {
+        <tr> 
+            <td>@ticket.Title</td>
+            <td>(@ticket.Status)</td>
+            <td>@ticket.Time</td>
+            <td>@Html.ActionLink("View Ticket", "ViewTicket", new {
+            ID = ticket.ID})</td>
+        </tr>
+    }
+</table>

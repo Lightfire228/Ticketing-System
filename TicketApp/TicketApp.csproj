@@ -231,6 +231,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\dead Link.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -284,8 +285,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Tickets\CustomerIndex.cshtml" />
     <Content Include="Views\Tickets\New.cshtml" />
+    <Content Include="Views\Tickets\Oops.cshtml" />
+    <Content Include="Views\Tickets\NoAccess.cshtml" />
+    <Content Include="Views\Tickets\_DisplayTickets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

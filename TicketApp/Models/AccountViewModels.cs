@@ -79,6 +79,10 @@ namespace TicketApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+		[Required]
+		[Display(Name = "User Type")]
+		public UserType Type { get; set; }
     }
 
     public class ResetPasswordViewModel

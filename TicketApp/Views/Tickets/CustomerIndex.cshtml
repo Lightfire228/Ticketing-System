@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TicketApp.Models.Ticket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tickets</h2>
+
+<!--add ticket component statement to this maybe? or just redirect to ticket body page-->
+@using (Html.BeginForm("Add", "Videos", FormMethod.Post, new { @class = "table" }))
+{
+    Html.RenderPartial("_DisplayTickets");
+}
