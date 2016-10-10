@@ -83,3 +83,4 @@ D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.pdb
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.initialadd.resources
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.csproj.GenerateResource.Cache
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.thj.resources
+D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.asdfasdfasdfasdf.resources

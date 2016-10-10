@@ -1,0 +1,22 @@
+﻿@model TicketApp.Models.EditTicketViewModel
+
+<table>
+    @foreach (var component in Model.Components) {
+        <tr>
+            <td>
+                <b>@component.User.Email</b>
+            </td>
+            <td>
+                <b>(@component.User.Type)</b>
+            </td>
+            <td>
+                <b>@component.Time</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @component.Text
+            </td>
+        </tr>
+    }
+</table>

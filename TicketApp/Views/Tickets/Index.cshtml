@@ -1,0 +1,15 @@
+﻿@model IEnumerable<TicketApp.Models.Ticket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tickets</h2>
+
+
+@using (Html.BeginForm("Add", "Videos", FormMethod.Post, new { @class = "table" }))
+{
+    // This was here to reuse for both customer and employee, but 
+    // I merged te views to one
+    Html.RenderPartial("_DisplayTickets");
+}

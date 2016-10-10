@@ -1,0 +1,13 @@
+﻿@model TicketApp.Models.EditTicketViewModel
+
+@Html.Partial("_DisplayTicketContents")
+
+@using (Html.BeginForm("EditTicket", "Tickets", FormMethod.Post, new { @class = "form" })) {
+    <div class="form-group">
+        @Html.LabelFor(m => m.ComponentToAdd.Text)
+        @Html.TextAreaFor(m => m.ComponentToAdd.Text, new { @class = "form-control", rows = 4 })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add Post" />
+}
+

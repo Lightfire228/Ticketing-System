@@ -12,6 +12,7 @@ namespace TicketApp.Controllers
     {
 
 		private ApplicationDbContext _dbContext;
+		private static int id;
 
 		public TicketsController() {
 			_dbContext = new ApplicationDbContext();
@@ -59,7 +60,7 @@ namespace TicketApp.Controllers
 			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
-				return RedirectToAction("NoAccess");
+				return RedirectToAction("Oops");
 
 			List<Ticket> tickets = _dbContext.Tickets.ToList();
 			List<UsersTickets> utRelation = _dbContext.UsersTickets.ToList();
@@ -73,9 +74,30 @@ namespace TicketApp.Controllers
 				select ticket;
 
 			// Actually, it is easier, and safer against SQL injection, but it's hard to figure out what works
-			return View(ticketQuery.ToList());
-//			return View(tickets);
+			return View("Index", ticketQuery.ToList());
 
+		}
+
+		public ActionResult EmployeeIndex() {
+			string name = User.Identity.Name;
+
+			if (name == "") {
+				return RedirectToAction("Oops");
+			}
+
+			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+
+			if (user.Type != UserType.EMPLOYEE)
+				return RedirectToAction("Oops");
+
+			List<Ticket> tickets = _dbContext.Tickets.ToList();
+
+			IEnumerable<Ticket> ticketQuery =
+				from ticket in tickets
+				where ticket.Status != TicketStatus.CLOSED
+				select ticket;
+			
+			return View("Index", ticketQuery.ToList());
 		}
 
 		public ActionResult New() {
@@ -90,7 +112,7 @@ namespace TicketApp.Controllers
 			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
-				RedirectToAction("NoAccess");
+				RedirectToAction("Oops");
 
 			return View();
 		}
@@ -106,7 +128,7 @@ namespace TicketApp.Controllers
 			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
-				return RedirectToAction("NoAccess");
+				return RedirectToAction("Oops");
 
 			Ticket ticket = new Ticket();
 			TicketComponent component = new TicketComponent();
@@ -133,17 +155,75 @@ namespace TicketApp.Controllers
 			return RedirectToAction("Index");
 		}
 
-		public ActionResult Edit(int id) {
-			var video = _dbContext.Tickets.SingleOrDefault(v => v.ID == id);
+		public ActionResult View(Ticket ticket) {
+			string name = HttpContext.User.Identity.GetUserName();
 
-			if (video == null)
-				return HttpNotFound();
+			if (name == "") {
+				return RedirectToAction("Oops");
+			}
 
-			return View(video);
+			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+
+			List<TicketComponent> components = _dbContext.TicketComponents.ToList();
+
+			IEnumerable<TicketComponent> componentQuery = 
+				from component in components
+				where component.TicketID == ticket.ID
+				select component;
+
+			EditTicketViewModel model = new EditTicketViewModel();
+
+			model.Components = componentQuery.ToList();
+
+			TicketComponent comp = new TicketComponent();
+			model.ComponentToAdd = comp;
+			comp.Ticket = ticket;
+
+			TicketsController.id = ticket.ID;
+
+			switch (user.Type) {
+				case UserType.CUSTOMER:
+					return View("CustomerView", model);
+
+				case UserType.EMPLOYEE:
+					return View("EmployeeView", model);
+			}
+
+			return RedirectToAction("Oops");
+		}
+
+		[HttpPost]
+		public ActionResult EditTicket(EditTicketViewModel model) {
+			string name = HttpContext.User.Identity.GetUserName();
+
+			if (name == "") {
+				return RedirectToAction("Oops");
+			}
+
+			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+
+			TicketComponent component = model.ComponentToAdd;
+
+			component.Time = DateTime.Now;
+			component.User = user;
+			// I REALIZE THIS IS BAD DESIGN, BUT MODEL.TICKET GETS OVERRIDEN
+			// IN THE CALL TO THE VIEW, AND I CAN'T FIX THAT
+			Ticket ticket = _dbContext.Tickets.Find(TicketsController.id);
+			ticket.Status = model.Status;
+
+			component.Ticket = ticket;
+
+			_dbContext.TicketComponents.Add(component);
+			_dbContext.SaveChanges();
+
+			if (ticket.Status == TicketStatus.CLOSED)
+				return RedirectToAction("Index");
+
+			return RedirectToAction("View", component.Ticket);
 		}
 
 		public ActionResult Oops() {
 			return View();
 		}
-    }
+	}
 }

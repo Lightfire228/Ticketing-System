@@ -10,8 +10,7 @@
             <td>@ticket.Title</td>
             <td>(@ticket.Status)</td>
             <td>@ticket.Time</td>
-            <td>@Html.ActionLink("View Ticket", "ViewTicket", new {
-            ID = ticket.ID})</td>
+            <td>@Html.ActionLink("View Ticket", "View", new { ID = ticket.ID })</td>
         </tr>
     }
 </table>
