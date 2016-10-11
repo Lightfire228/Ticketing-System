@@ -164,11 +164,11 @@ namespace TicketApp.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-					User myUser = new Models.User();
+					MyUser myUser = new Models.MyUser();
 					myUser.Email = model.Email;
 					myUser.Type = model.Type;
 
-					_dbContext.User.Add(myUser);
+					_dbContext.MyUsers.Add(myUser);
 					_dbContext.SaveChanges();
 
                     return RedirectToAction("Index", "Home");

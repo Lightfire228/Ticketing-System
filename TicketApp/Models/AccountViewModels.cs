@@ -81,7 +81,7 @@ namespace TicketApp.Models
         public string ConfirmPassword { get; set; }
 
 		[Required]
-		[Display(Name = "User Type")]
+		[Display(Name = "MyUser Type")]
 		public UserType Type { get; set; }
     }
 

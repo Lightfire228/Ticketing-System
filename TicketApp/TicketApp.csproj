@@ -202,17 +202,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610080322440_initial add.cs" />
-    <Compile Include="Migrations\201610080322440_initial add.Designer.cs">
-      <DependentUpon>201610080322440_initial add.cs</DependentUpon>
+    <Compile Include="Migrations\201610110202081_MyUser.cs" />
+    <Compile Include="Migrations\201610110202081_MyUser.Designer.cs">
+      <DependentUpon>201610110202081_MyUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610080405290_thj%27.cs" />
-    <Compile Include="Migrations\201610080405290_thj%27.Designer.cs">
-      <DependentUpon>201610080405290_thj%27.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610100256045_asdfasdfasdfasdf.cs" />
-    <Compile Include="Migrations\201610100256045_asdfasdfasdfasdf.Designer.cs">
-      <DependentUpon>201610100256045_asdfasdfasdfasdf.cs</DependentUpon>
+    <Compile Include="Migrations\201610110205446_asdf.cs" />
+    <Compile Include="Migrations\201610110205446_asdf.Designer.cs">
+      <DependentUpon>201610110205446_asdf.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -221,7 +217,7 @@
     <Compile Include="Models\View Models\EditTicketViewModel.cs" />
     <Compile Include="Models\View Models\NewTicketViewModel.cs" />
     <Compile Include="Models\DB Models\TicketComponent.cs" />
-    <Compile Include="Models\DB Models\User.cs" />
+    <Compile Include="Models\DB Models\MyUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\DB Models\Ticket.cs" />
@@ -310,14 +306,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610080322440_initial add.resx">
-      <DependentUpon>201610080322440_initial add.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610110202081_MyUser.resx">
+      <DependentUpon>201610110202081_MyUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610080405290_thj%27.resx">
-      <DependentUpon>201610080405290_thj%27.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610100256045_asdfasdfasdfasdf.resx">
-      <DependentUpon>201610100256045_asdfasdfasdfasdf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610110205446_asdf.resx">
+      <DependentUpon>201610110205446_asdf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

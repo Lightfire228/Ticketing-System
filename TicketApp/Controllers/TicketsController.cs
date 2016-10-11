@@ -28,13 +28,13 @@ namespace TicketApp.Controllers
 
 			string name = User.Identity.Name;
 
-			// User hasn't logged in yet
+			// MyUser hasn't logged in yet
 			if (name == "") {
 				return RedirectToAction("Oops");
 			}
 			
 			// Still no idea what lambda expressions are, but it works
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 	
 			// Route to page for user
 			switch (user.Type) {
@@ -57,7 +57,7 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
 				return RedirectToAction("Oops");
@@ -85,7 +85,7 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.EMPLOYEE)
 				return RedirectToAction("Oops");
@@ -104,12 +104,12 @@ namespace TicketApp.Controllers
 
 			string name = User.Identity.Name;
 
-			// User hasn't logged in yet
+			// MyUser hasn't logged in yet
 			if (name == "") {
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
 				RedirectToAction("Oops");
@@ -125,7 +125,7 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
 				return RedirectToAction("Oops");
@@ -139,10 +139,10 @@ namespace TicketApp.Controllers
 			ticket.Status = TicketStatus.OPENED;
 
 			usersTickets.Ticket = ticket;
-			usersTickets.User = user;
+			usersTickets.MyUser = user;
 
 			component.Ticket = ticket;
-			component.User = user;
+			component.MyUser = user;
 
 			component.Text = newTicket.BodyText;
 			component.Time = ticket.Time;
@@ -162,7 +162,7 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			List<TicketComponent> components = _dbContext.TicketComponents.ToList();
 
@@ -200,12 +200,12 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Oops");
 			}
 
-			User user = _dbContext.User.SingleOrDefault(u => u.Email == name);
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			TicketComponent component = model.ComponentToAdd;
 
 			component.Time = DateTime.Now;
-			component.User = user;
+			component.MyUser = user;
 			// I REALIZE THIS IS BAD DESIGN, BUT MODEL.TICKET GETS OVERRIDEN
 			// IN THE CALL TO THE VIEW, AND I CAN'T FIX THAT
 			Ticket ticket = _dbContext.Tickets.Find(TicketsController.id);

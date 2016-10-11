@@ -10,7 +10,7 @@ namespace TicketApp.Models {
 		
 		[Key]
 		[Column(Order = 1)]
-		[ForeignKey("User")]
+		[ForeignKey("MyUser")]
 		public int UserID {
 			get; set;
 		}
@@ -22,7 +22,7 @@ namespace TicketApp.Models {
 			get; set;
 		}
 
-		public virtual User User {
+		public virtual MyUser MyUser {
 			get; set;
 		}
 

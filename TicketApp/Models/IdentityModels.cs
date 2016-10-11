@@ -24,7 +24,7 @@ namespace TicketApp.Models
 			get; set;
 		}
 
-		public DbSet<User> User {
+		public DbSet<MyUser> MyUsers {
 			get; set;
 		}
 
