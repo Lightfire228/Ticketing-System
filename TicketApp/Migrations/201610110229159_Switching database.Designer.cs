@@ -7,13 +7,13 @@ namespace TicketApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class asdf : IMigrationMetadata
+    public sealed partial class Switchingdatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(asdf));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Switchingdatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610110205446_asdf"; }
+            get { return "201610110229159_Switching database"; }
         }
         
         string IMigrationMetadata.Source

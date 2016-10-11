@@ -202,13 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610110202081_MyUser.cs" />
-    <Compile Include="Migrations\201610110202081_MyUser.Designer.cs">
-      <DependentUpon>201610110202081_MyUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610110205446_asdf.cs" />
-    <Compile Include="Migrations\201610110205446_asdf.Designer.cs">
-      <DependentUpon>201610110205446_asdf.cs</DependentUpon>
+    <Compile Include="Migrations\201610110229159_Switching database.cs" />
+    <Compile Include="Migrations\201610110229159_Switching database.Designer.cs">
+      <DependentUpon>201610110229159_Switching database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -306,11 +302,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610110202081_MyUser.resx">
-      <DependentUpon>201610110202081_MyUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610110205446_asdf.resx">
-      <DependentUpon>201610110205446_asdf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610110229159_Switching database.resx">
+      <DependentUpon>201610110229159_Switching database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
