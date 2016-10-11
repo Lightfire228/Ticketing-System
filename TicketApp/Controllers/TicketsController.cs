@@ -214,7 +214,7 @@ namespace TicketApp.Controllers
 			Ticket ticket = _dbContext.Tickets.Find(TicketsController.id);
 			ticket.Status = model.Status;
 
-			if (ticket.Status == TicketStatus.CLOSED)
+			if (ticket.Status == TicketStatus.CLOSED && user.Type == UserType.CUSTOMER)
 				return RedirectToAction("Oops");
 
 			component.Ticket = ticket;
