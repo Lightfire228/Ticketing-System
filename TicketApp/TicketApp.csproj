@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
@@ -228,7 +229,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\megusta.bmp" />
     <Content Include="Images\dead Link.png" />
+    <Content Include="Images\itsalive.bmp" />
+    <Content Include="Images\wahjudi.bmp" />
+    <Content Include="Images\pony.bmp" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -289,9 +294,15 @@
     <Content Include="Views\Tickets\_DisplayTicketContents.cshtml" />
     <Content Include="Views\Tickets\CustomerView.cshtml" />
     <Content Include="Views\Tickets\EmployeeView.cshtml" />
+    <Content Include="Views\Tickets\ClosedTicketsView.cshtml" />
+    <Content Include="Views\Home\PonyView.cshtml" />
+    <Content Include="Views\Home\MeGustaView.cshtml" />
+    <Content Include="Views\Home\WahjudiView.cshtml" />
+    <Content Include="Views\Home\Pi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Chat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

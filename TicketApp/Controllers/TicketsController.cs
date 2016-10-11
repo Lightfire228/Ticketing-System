@@ -65,15 +65,12 @@ namespace TicketApp.Controllers
 			List<Ticket> tickets = _dbContext.Tickets.ToList();
 			List<UsersTickets> utRelation = _dbContext.UsersTickets.ToList();
 
-			// I JUST WANT SQL COMMANDS PLEASE, THIS IS SO MUCH HARDER THAN JUST SENDING A METHOD
-			// A STRING OF SQL COMMANDS ASDFKLNASDF;LNHAS
 			IEnumerable<Ticket> ticketQuery = 
 				from ticket in tickets
 				from ut in utRelation
 				where ticket.ID == ut.TicketID && ut.UserID == user.ID
 				select ticket;
 
-			// Actually, it is easier, and safer against SQL injection, but it's hard to figure out what works
 			return View("Index", ticketQuery.ToList());
 
 		}
@@ -112,7 +109,7 @@ namespace TicketApp.Controllers
 			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
 
 			if (user.Type != UserType.CUSTOMER)
-				RedirectToAction("Oops");
+				return RedirectToAction("Oops");
 
 			return View();
 		}
@@ -181,9 +178,15 @@ namespace TicketApp.Controllers
 
 			TicketsController.id = ticket.ID;
 
+			// BECAUSE IT RESETS FOR SOME REASON
+			ticket = _dbContext.Tickets.Find(id);
+
 			switch (user.Type) {
 				case UserType.CUSTOMER:
-					return View("CustomerView", model);
+					if (ticket.Status == TicketStatus.CLOSED)
+						return View("ClosedTicketsView", model);
+					else 
+						return View("CustomerView", model);
 
 				case UserType.EMPLOYEE:
 					return View("EmployeeView", model);
@@ -210,6 +213,9 @@ namespace TicketApp.Controllers
 			// IN THE CALL TO THE VIEW, AND I CAN'T FIX THAT
 			Ticket ticket = _dbContext.Tickets.Find(TicketsController.id);
 			ticket.Status = model.Status;
+
+			if (ticket.Status == TicketStatus.CLOSED)
+				return RedirectToAction("Oops");
 
 			component.Ticket = ticket;
 

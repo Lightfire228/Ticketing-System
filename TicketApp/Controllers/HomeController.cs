@@ -21,5 +21,21 @@ namespace TicketApp.Controllers {
 
 			return View();
 		}
+
+		public ActionResult PonyView() {
+			return View();
+		}
+
+		public ActionResult MeGustaView() {
+			return View();
+		}
+
+		public ActionResult WahjudiView() {
+			return View();
+		}
+
+		public ActionResult Pi() {
+			return View();
+		}
 	}
 }
