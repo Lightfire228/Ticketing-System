@@ -1,0 +1,19 @@
+﻿@model TicketApp.Models.NewChatViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Schedule Chat</h2>
+
+@using (Html.BeginForm("Add", "Chats", FormMethod.Post, new { @class = "form" })) {
+    <div class="form-group">
+        @Html.LabelFor(m => m.SelectedUserID, "With: ")
+        @Html.DropDownListFor(m => m.SelectedUserID, new SelectList(Model.Users, "ID", "Email"))
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Time, "At: ")
+        @Html.EditorFor(m => m.Time)
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+}

@@ -18,7 +18,7 @@ namespace TicketApp.Models {
 			get; set;
 		}
 
-		public Ticket Ticket {
+		public int TicketID {
 			get; set;
 		}
 	}

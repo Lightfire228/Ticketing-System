@@ -9,23 +9,23 @@ namespace TicketApp.Models {
 	public class ChatToUser {
 
 		[Key][Column(Order = 1)]
-		[ForeignKey("ChatAppointment")]
+		[ForeignKey("Chat")]
 		public int ChatID {
 			get; set;
 		}
 
 		[Key]
 		[Column(Order = 2)]
-		[ForeignKey("MyUser")]
+		[ForeignKey("User")]
 		public int UserID {
 			get; set;
 		}
 
-		public virtual ChatAppointment ChatAppointment {
+		public virtual Chat Chat {
 			get; set;
 		}
 
-		public virtual MyUser MyUser {
+		public virtual MyUser User {
 			get; set;
 		}
 

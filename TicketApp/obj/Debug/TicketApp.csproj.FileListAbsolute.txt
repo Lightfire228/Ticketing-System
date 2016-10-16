@@ -82,3 +82,5 @@ D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.dll
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.pdb
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.Switchingdatabase.resources
 D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.csproj.GenerateResource.Cache
+D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.Youhavetohaverelationsthisway.resources
+D:\Software\Visual Studio\Projects\TicketApp\TicketApp\obj\Debug\TicketApp.Migrations.fixedname.resources

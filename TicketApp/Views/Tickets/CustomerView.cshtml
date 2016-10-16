@@ -7,7 +7,14 @@
         @Html.LabelFor(m => m.ComponentToAdd.Text)
         @Html.TextAreaFor(m => m.ComponentToAdd.Text, new { @class = "form-control", rows = 4 })
     </div>
+    <div>
+        @Html.HiddenFor(m => m.TicketID)
+    </div>
+
 
     <input type="submit" class="btn btn-primary" value="Add Post" />
+
 }
+
+
 

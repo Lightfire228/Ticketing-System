@@ -207,11 +207,21 @@
     <Compile Include="Migrations\201610110229159_Switching database.Designer.cs">
       <DependentUpon>201610110229159_Switching database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610161728065_You have to have relations this way.cs" />
+    <Compile Include="Migrations\201610161728065_You have to have relations this way.Designer.cs">
+      <DependentUpon>201610161728065_You have to have relations this way.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610161928118_fixed name.cs" />
+    <Compile Include="Migrations\201610161928118_fixed name.Designer.cs">
+      <DependentUpon>201610161928118_fixed name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DB Models\ChatAppointment.cs" />
-    <Compile Include="Models\DB Models\ChatToUser.cs" />
+    <Compile Include="Models\DB Models\Chat.cs" />
+    <Compile Include="Models\DB Models\ChatToUsers.cs" />
+    <Compile Include="Models\View Models\ChatAppsViewModel.cs" />
     <Compile Include="Models\View Models\EditTicketViewModel.cs" />
+    <Compile Include="Models\View Models\NewChatViewModel.cs" />
     <Compile Include="Models\View Models\NewTicketViewModel.cs" />
     <Compile Include="Models\DB Models\TicketComponent.cs" />
     <Compile Include="Models\DB Models\MyUser.cs" />
@@ -264,8 +274,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -299,10 +307,13 @@
     <Content Include="Views\Home\MeGustaView.cshtml" />
     <Content Include="Views\Home\WahjudiView.cshtml" />
     <Content Include="Views\Home\Pi.cshtml" />
+    <Content Include="Views\Chats\Index.cshtml" />
+    <Content Include="Views\Chats\Oops.cshtml" />
+    <Content Include="Views\Chats\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Chat\" />
+    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -315,6 +326,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610110229159_Switching database.resx">
       <DependentUpon>201610110229159_Switching database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610161728065_You have to have relations this way.resx">
+      <DependentUpon>201610161728065_You have to have relations this way.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610161928118_fixed name.resx">
+      <DependentUpon>201610161928118_fixed name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

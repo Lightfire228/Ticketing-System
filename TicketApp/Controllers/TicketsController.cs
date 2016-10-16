@@ -12,16 +12,11 @@ namespace TicketApp.Controllers
     {
 
 		private ApplicationDbContext _dbContext;
-		private static int id;
 
 		public TicketsController() {
 			_dbContext = new ApplicationDbContext();
 		}
 
-		/*
-		 * Separate this into two actions : customer and employee
-		 * Redirect the page if the cutomer somehow gets to the employee page
-		 */ 
         // GET: Tickets
         public ActionResult Index()
         {
@@ -174,17 +169,13 @@ namespace TicketApp.Controllers
 
 			TicketComponent comp = new TicketComponent();
 			model.ComponentToAdd = comp;
-			comp.Ticket = ticket;
-
-			TicketsController.id = ticket.ID;
-
-			// BECAUSE IT RESETS FOR SOME REASON
-			ticket = _dbContext.Tickets.Find(id);
+			model.TicketID = ticket.ID;
 
 			switch (user.Type) {
 				case UserType.CUSTOMER:
 					if (ticket.Status == TicketStatus.CLOSED)
 						return View("ClosedTicketsView", model);
+
 					else 
 						return View("CustomerView", model);
 
@@ -209,20 +200,17 @@ namespace TicketApp.Controllers
 
 			component.Time = DateTime.Now;
 			component.MyUser = user;
-			// I REALIZE THIS IS BAD DESIGN, BUT MODEL.TICKET GETS OVERRIDEN
-			// IN THE CALL TO THE VIEW, AND I CAN'T FIX THAT
-			Ticket ticket = _dbContext.Tickets.Find(TicketsController.id);
-			ticket.Status = model.Status;
+			component.Ticket = _dbContext.Tickets.Find(model.TicketID);
 
-			if (ticket.Status == TicketStatus.CLOSED && user.Type == UserType.CUSTOMER)
+			int a = component.Ticket.ID;
+
+			if (component.Ticket.Status == TicketStatus.CLOSED && user.Type == UserType.CUSTOMER)
 				return RedirectToAction("Oops");
-
-			component.Ticket = ticket;
 
 			_dbContext.TicketComponents.Add(component);
 			_dbContext.SaveChanges();
 
-			if (ticket.Status == TicketStatus.CLOSED)
+			if (component.Ticket.Status == TicketStatus.CLOSED)
 				return RedirectToAction("Index");
 
 			return RedirectToAction("View", component.Ticket);

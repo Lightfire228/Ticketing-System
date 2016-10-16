@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace TicketApp.Models {
-	public class ChatAppointment {
+	public class NewChatViewModel {
 
-		public int ID {
+		public List<MyUser> Users {
 			get; set;
 		}
 
-		[Required]
+		public int SelectedUserID {
+			get; set;
+		}
+
 		public DateTime Time {
 			get; set;
 		}

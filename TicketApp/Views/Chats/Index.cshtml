@@ -1,0 +1,23 @@
+﻿@model List<TicketApp.Models.ChatAppsViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table cellpadding="10">
+    <tr>
+        <td><b>Date of Chat</b></td>
+        <td><b>User</b></td>
+    </tr>
+    @foreach (var chat in Model) {
+        <tr>
+            <td>@chat.Chat.Time</td>
+            <td>(@chat.User.Email)</td> 
+            <td>@Html.ActionLink("Delete", "Delete", new { ID = chat.Chat.ID} )</td>    
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Create new chat", "New")

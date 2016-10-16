@@ -32,7 +32,7 @@ namespace TicketApp.Models
 			get; set;
 		}
 
-		public DbSet<ChatAppointment> ChatAppointments {
+		public DbSet<Chat> Chats {
 			get; set;
 		}
 
