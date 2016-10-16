@@ -12,7 +12,11 @@
         @Html.RadioButtonFor(m => m.Status, TicketApp.Models.TicketStatus.WORKED_ON) In progress
         @Html.RadioButtonFor(m => m.Status, TicketApp.Models.TicketStatus.CLOSED) Closed
     </div>
+    <div>
+        @Html.HiddenFor(m => m.TicketID)
+    </div>
 
     <input type="submit" class="btn btn-primary" value="Add Post" />
 }
+
 

@@ -229,6 +229,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\DB Models\Ticket.cs" />
     <Compile Include="Models\DB Models\UsersTickets.cs" />
+    <Compile Include="Models\View Models\ReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -310,6 +311,7 @@
     <Content Include="Views\Chats\Index.cshtml" />
     <Content Include="Views\Chats\Oops.cshtml" />
     <Content Include="Views\Chats\New.cshtml" />
+    <Content Include="Views\Tickets\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

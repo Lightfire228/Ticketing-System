@@ -1,0 +1,13 @@
+﻿@model TicketApp.Models.ReportViewModel
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Report</h2>
+
+Total number of tickets: @Model.Tickets
+<br>
+Total number of closed tickets: @Model.Closed
+<br>
+Percentage of tickets closed: @(100 * Model.Closed / (double) Model.Tickets) %

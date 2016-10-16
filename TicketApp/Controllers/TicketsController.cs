@@ -202,7 +202,7 @@ namespace TicketApp.Controllers
 			component.MyUser = user;
 			component.Ticket = _dbContext.Tickets.Find(model.TicketID);
 
-			int a = component.Ticket.ID;
+			System.Diagnostics.Debug.WriteLine(model.TicketID);
 
 			if (component.Ticket.Status == TicketStatus.CLOSED && user.Type == UserType.CUSTOMER)
 				return RedirectToAction("Oops");
@@ -214,6 +214,37 @@ namespace TicketApp.Controllers
 				return RedirectToAction("Index");
 
 			return RedirectToAction("View", component.Ticket);
+		}
+
+		public ActionResult Report() {
+			string name = HttpContext.User.Identity.GetUserName();
+
+			if (name == "") {
+				return RedirectToAction("Oops");
+			}
+
+			MyUser user = _dbContext.MyUsers.SingleOrDefault(u => u.Email == name);
+
+			if (user.Type == UserType.CUSTOMER)
+				return RedirectToAction("Oops");
+
+			int totalTickets = 0;
+			int closedTickets = 0;
+
+			IEnumerable<Ticket> tickets = _dbContext.Tickets.ToList();
+
+			foreach (Ticket ticket in tickets) {
+				totalTickets++;
+				if (ticket.Status == TicketStatus.CLOSED)
+					closedTickets++;
+			}
+
+			ReportViewModel model = new ReportViewModel();
+
+			model.Tickets = totalTickets;
+			model.Closed = closedTickets;
+
+			return View(model);
 		}
 
 		public ActionResult Oops() {
