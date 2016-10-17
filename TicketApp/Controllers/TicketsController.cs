@@ -201,8 +201,7 @@ namespace TicketApp.Controllers
 			component.Time = DateTime.Now;
 			component.MyUser = user;
 			component.Ticket = _dbContext.Tickets.Find(model.TicketID);
-
-			System.Diagnostics.Debug.WriteLine(model.TicketID);
+			component.Ticket.Status = model.Status;
 
 			if (component.Ticket.Status == TicketStatus.CLOSED && user.Type == UserType.CUSTOMER)
 				return RedirectToAction("Oops");
